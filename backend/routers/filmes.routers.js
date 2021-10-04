@@ -11,20 +11,20 @@ const filmes = [
         image: "https://images.theconversation.com/files/64127/original/2mdvqkw8-1415620078.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop",
         genre: "Scy-fi",
         rate: 10,
-        // status: false
+       
 
     }
 ];
 
 
-//Rota para mostrar todos os filmes pré-cadastrados
+
 router.get('/', (req, res)=>{
     res.send(filmes)
 });
 
 
 
-//Rota mostrar os filmes por ID
+
 router.get('/:id', (req, res)=>{
     const idParam = req.params.id;
     const index = filmes.findIndex(filme => filme.id == idParam);
@@ -33,7 +33,7 @@ router.get('/:id', (req, res)=>{
 });
 
 
-//Rota para atualizar um item através do ID
+
 router.put('/:id', (req, res)=>{
     const filmeEdit = req.body;
     const id = req.params.id;
@@ -43,7 +43,7 @@ router.put('/:id', (req, res)=>{
     filmePreCadastrado.image = filmeEdit.image;
     filmePreCadastrado.genre = filmeEdit.genre;
     filmePreCadastrado.rate = filmeEdit.rate;
-    // filmePreCadastrado.status = filmeEdit.status;
+    
    
 
     res.send({
@@ -53,7 +53,7 @@ router.put('/:id', (req, res)=>{
 });
 
 
-//Rota para adicionar um novo filme
+
 router.post('/add', (req, res)=>{
     const filme = req.body;
     filme.id = Date.now();
@@ -65,7 +65,7 @@ router.post('/add', (req, res)=>{
 })
 
 
-//Rota DELETE que apaga o filme pelo ID
+
 router.delete('/:id', (req, res)=>{
     const id = req.params.id;
     const index = filmes.findIndex((filme)=> filme.id == id);
